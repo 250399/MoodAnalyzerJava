@@ -56,8 +56,26 @@ public class MoodAnalyzerTest {
     @Test
     public void givenMoodAnalyzerClassName_ReturnsMoodAnalyzerObject(){
         moodObject = new MoodAnalyzer();
-        MoodAnalyzer obj = (MoodAnalyzer) MoodAnalyzerFactory.returnMoodAnalyzerObject("com.bl.demo.MoodAnalyzer");
+        MoodAnalyzer obj = (MoodAnalyzer) MoodAnalyzerFactory.returnMoodAnalyzerObject("com.bl.demo.MoodAnalyzer",false);
         Assert.assertTrue(moodObject.equals(obj));
+    }
+
+    @Test
+    public void givenClassName_WhenImproper_ShouldReturnException(){
+        try {
+            MoodAnalyzerFactory.returnMoodAnalyzerObject("com.bl.demo.WrongClass",false);
+        }catch (MoodAnalyzerException e){
+            Assert.assertEquals("No such class found",e.getNotice());
+        }
+    }
+
+    @Test
+    public void givenClass_WhenConstructor_NotProper_ThrowsException(){
+        try {
+            MoodAnalyzerFactory.returnMoodAnalyzerObject("com.bl.demo.MoodAnalyzer",true);
+        }catch (MoodAnalyzerException e){
+            Assert.assertEquals("No such method found",e.getNotice());
+        }
     }
 
 }

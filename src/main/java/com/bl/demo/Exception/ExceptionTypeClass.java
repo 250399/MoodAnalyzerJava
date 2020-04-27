@@ -3,7 +3,8 @@ package com.bl.demo.Exception;
 public enum ExceptionTypeClass {
     NULLEXCEPTION("Mood cannot be null"),
     EMPTYEXCEPTION("Mood cannot be empty"),
-    NOSUCHCLASSEXCEPTION("No such class found");
+    NOSUCHCLASSEXCEPTION("No such class found"),
+    NOSUCHMETHODEXCEPTION("No such method found");
 
     private String notice;
 
