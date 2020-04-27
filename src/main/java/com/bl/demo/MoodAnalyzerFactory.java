@@ -74,5 +74,20 @@ public class MoodAnalyzerFactory {
         }
     return null;
     }
+
+    public static String changeValue(String className, String varName, String value){
+        createMoodAnalyzerObject(className);
+        try {
+            Field field = moodObject.getDeclaredField(varName);
+            field.setAccessible(true);
+            MoodAnalyzer obj = ((MoodAnalyzer)returnMoodAnalyzerObject(className,false));
+            field.set(obj,value);
+            return obj.analyseMood();
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
 

@@ -117,5 +117,9 @@ public class MoodAnalyzerTest {
         }
     }
 
+    @Test
+    public void setHappyMessage_WithReflector_ReturnsHappy(){
+        Assert.assertEquals("Happy",MoodAnalyzerFactory.changeValue("com.bl.demo.MoodAnalyzer","message","I am in happy mood"));
+    }
 
 }
