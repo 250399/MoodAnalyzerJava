@@ -85,4 +85,13 @@ public class MoodAnalyzerTest {
         Assert.assertTrue(moodObject.equals(obj));
     }
 
+    @Test
+    public void givenClassName_WhenImproper_ShouldReturnException_ForParameterizedConstructor(){
+        try {
+            MoodAnalyzerFactory.returnMoodAnalyzerObject("com.bl.demo.WrongClass",String.class,"I am in happy mood");
+        }catch (MoodAnalyzerException e){
+            Assert.assertEquals("No such class found",e.getNotice());
+        }
+    }
+
 }
