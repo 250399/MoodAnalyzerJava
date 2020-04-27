@@ -4,8 +4,8 @@ public class MoodAnalyzer {
     String message;
 
     String analyseMood(String message){
-        if(message.toLowerCase().contains("happy"))
-            return "Happy";
-        return "Sad";
+        if(message.toLowerCase().contains("sad"))
+            return "Sad";
+        return "Happy";
     }
 }
