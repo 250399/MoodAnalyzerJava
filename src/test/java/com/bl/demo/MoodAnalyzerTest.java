@@ -122,4 +122,13 @@ public class MoodAnalyzerTest {
         Assert.assertEquals("Happy",MoodAnalyzerFactory.changeValue("com.bl.demo.MoodAnalyzer","message","I am in happy mood"));
     }
 
+    @Test
+    public void setField_WhenImproper_throwsException(){
+        try{
+            MoodAnalyzerFactory.changeValue("com.bl.demo.MoodAnalyzer","WrongField","I am in happy mood");
+        }catch (MoodAnalyzerException e){
+            Assert.assertEquals("No such field available",e.getNotice());
+        }
+    }
+
 }

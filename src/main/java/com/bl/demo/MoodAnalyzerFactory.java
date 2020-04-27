@@ -84,9 +84,8 @@ public class MoodAnalyzerFactory {
             field.set(obj,value);
             return obj.analyseMood();
         } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
+            throw new MoodAnalyzerException(ExceptionTypeClass.NOSUCHFIELDEXCEPTION);
         }
-        return null;
     }
 
 }

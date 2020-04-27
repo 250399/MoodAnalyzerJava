@@ -4,7 +4,8 @@ public enum ExceptionTypeClass {
     NULLEXCEPTION("Mood cannot be null"),
     EMPTYEXCEPTION("Mood cannot be empty"),
     NOSUCHCLASSEXCEPTION("No such class found"),
-    NOSUCHMETHODEXCEPTION("No such method found");
+    NOSUCHMETHODEXCEPTION("No such method found"),
+    NOSUCHFIELDEXCEPTION("No such field available");
 
     private String notice;
 
