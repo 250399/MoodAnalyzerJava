@@ -94,4 +94,13 @@ public class MoodAnalyzerTest {
         }
     }
 
+    @Test
+    public void givenClassName_WhenConstructorImproper_ShouldReturnException_ForParameterized(){
+        try {
+            MoodAnalyzerFactory.returnMoodAnalyzerObject("com.bl.demo.MoodAnalyzer",Integer.class,"I am in happy mood");
+        }catch (MoodAnalyzerException e){
+            Assert.assertEquals("No such method found",e.getNotice());
+        }
+    }
+
 }
