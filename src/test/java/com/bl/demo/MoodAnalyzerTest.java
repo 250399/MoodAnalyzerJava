@@ -131,4 +131,13 @@ public class MoodAnalyzerTest {
         }
     }
 
+    @Test
+    public void settingNullMessage_WithReflector_ThrowsException(){
+        try{
+            MoodAnalyzerFactory.changeValue("com.bl.demo.MoodAnalyzer","WrongField",null);
+        }catch (MoodAnalyzerException e) {
+            Assert.assertEquals("No such field available", e.getNotice());
+        }
+    }
+
 }

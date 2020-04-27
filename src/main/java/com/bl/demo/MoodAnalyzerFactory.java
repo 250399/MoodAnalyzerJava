@@ -85,6 +85,8 @@ public class MoodAnalyzerFactory {
             return obj.analyseMood();
         } catch (NoSuchFieldException | IllegalAccessException e) {
             throw new MoodAnalyzerException(ExceptionTypeClass.NOSUCHFIELDEXCEPTION);
+        }catch (NullPointerException e){
+            throw new MoodAnalyzerException(ExceptionTypeClass.NULLEXCEPTION);
         }
     }
 
