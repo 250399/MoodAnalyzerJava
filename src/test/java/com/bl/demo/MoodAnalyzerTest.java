@@ -21,4 +21,14 @@ public class MoodAnalyzerTest {
         Assert.assertEquals("Happy",moodObject.analyseMood("I am in Any mood"));
     }
 
+    @Test
+    public void givenMessageSad_WhenInConstructor_ReturnsSad(){
+        Assert.assertEquals( "Sad",new MoodAnalyzer("I am in Sad mood").analyseMood());
+    }
+
+    @Test
+    public void givenMessageNull_WhenInConstructor_ReturnsSad(){
+        Assert.assertEquals("Sad",new MoodAnalyzer(null).analyseMood());
+    }
+
 }
