@@ -103,4 +103,9 @@ public class MoodAnalyzerTest {
         }
     }
 
+    @Test
+    public void givenHappyMessage_UsingReflection_WhenProperReturnHappy(){
+        Assert.assertEquals("Happy",MoodAnalyzerFactory.invokeMethod("com.bl.demo.MoodAnalyzer","analyseMood",String.class,"I am in happy mood"));
+    }
+
 }
