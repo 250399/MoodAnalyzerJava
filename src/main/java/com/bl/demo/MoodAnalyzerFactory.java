@@ -4,6 +4,7 @@ import com.bl.demo.Exception.ExceptionTypeClass;
 import com.bl.demo.Exception.MoodAnalyzerException;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -65,7 +66,7 @@ public class MoodAnalyzerFactory {
             Object obj = returnMoodAnalyzerObject(className,false);
             return (String)method.invoke((MoodAnalyzer)obj,message);
         } catch (NoSuchMethodException e) {
-            e.printStackTrace();
+            throw new MoodAnalyzerException(ExceptionTypeClass.NOSUCHMETHODEXCEPTION);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
@@ -73,6 +74,5 @@ public class MoodAnalyzerFactory {
         }
     return null;
     }
-
 }
 

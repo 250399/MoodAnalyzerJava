@@ -108,4 +108,14 @@ public class MoodAnalyzerTest {
         Assert.assertEquals("Happy",MoodAnalyzerFactory.invokeMethod("com.bl.demo.MoodAnalyzer","analyseMood",String.class,"I am in happy mood"));
     }
 
+    @Test
+    public void givenHappyMessage_InImproperMethod_ThrowsException(){
+        try {
+            MoodAnalyzerFactory.invokeMethod("com.bl.demo.MoodAnalyzer","ThisIsWrongMethod",String.class,"I am in happy mood");
+        }catch (MoodAnalyzerException e){
+            Assert.assertEquals("No such method found",e.getNotice());
+        }
+    }
+
+
 }
