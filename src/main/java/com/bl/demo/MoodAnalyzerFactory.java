@@ -38,4 +38,21 @@ public class MoodAnalyzerFactory {
         }
         return null;
     }
+
+    public static Object returnMoodAnalyzerObject(String className,Class parameterType, String message){
+        createMoodAnalyzerObject(className);
+        try {
+            Constructor constructor = moodObject.getDeclaredConstructor(parameterType);
+            return constructor.newInstance(message);
+        } catch (NoSuchMethodException e) {
+            throw new MoodAnalyzerException(ExceptionTypeClass.NOSUCHMETHODEXCEPTION);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

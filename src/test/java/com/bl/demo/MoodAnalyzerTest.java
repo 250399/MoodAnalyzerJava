@@ -54,7 +54,7 @@ public class MoodAnalyzerTest {
     }
 
     @Test
-    public void givenMoodAnalyzerClassName_ReturnsMoodAnalyzerObject(){
+    public void givenClassName_ReturnsMoodAnalyzerObject(){
         moodObject = new MoodAnalyzer();
         MoodAnalyzer obj = (MoodAnalyzer) MoodAnalyzerFactory.returnMoodAnalyzerObject("com.bl.demo.MoodAnalyzer",false);
         Assert.assertTrue(moodObject.equals(obj));
@@ -76,6 +76,13 @@ public class MoodAnalyzerTest {
         }catch (MoodAnalyzerException e){
             Assert.assertEquals("No such method found",e.getNotice());
         }
+    }
+
+    @Test
+    public void givenClassName_ReturnsMoodAnalyzerObject_ForParameterizedConstructor(){
+        moodObject =  new MoodAnalyzer("I am in happy mood");
+        Object obj = MoodAnalyzerFactory.returnMoodAnalyzerObject("com.bl.demo.MoodAnalyzer",String.class,"I am in happy mood");
+        Assert.assertTrue(moodObject.equals(obj));
     }
 
 }
