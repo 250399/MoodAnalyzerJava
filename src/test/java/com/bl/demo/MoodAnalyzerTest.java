@@ -1,5 +1,6 @@
 package com.bl.demo;
 
+import com.bl.demo.Exception.ExceptionTypeClass;
 import com.bl.demo.Exception.MoodAnalyzerException;
 import org.junit.Assert;
 import org.junit.Before;
@@ -39,6 +40,16 @@ public class MoodAnalyzerTest {
             moodObject.analyseMood();
         }catch (MoodAnalyzerException e){
             Assert.assertEquals("Mood cannot be null",e.getNotice());
+        }
+    }
+
+    @Test
+    public void givenEmptyMessage_ShouldThrow_EmptyException(){
+        try {
+            moodObject = new MoodAnalyzer("");
+            moodObject.analyseMood();
+        }catch (MoodAnalyzerException e){
+            Assert.assertEquals("Mood cannot be empty",e.getNotice());
         }
     }
 

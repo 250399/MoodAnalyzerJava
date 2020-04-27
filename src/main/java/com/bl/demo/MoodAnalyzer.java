@@ -21,6 +21,8 @@ public class MoodAnalyzer {
         try {
             if(message.toLowerCase().contains("sad"))
                 return "Sad";
+            else if(message.equals(""))
+                throw new MoodAnalyzerException(ExceptionTypeClass.EMPTYEXCEPTION);
             else
                 return "Happy";
         }catch (NullPointerException e){
