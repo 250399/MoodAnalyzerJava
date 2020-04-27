@@ -53,4 +53,11 @@ public class MoodAnalyzerTest {
         }
     }
 
+    @Test
+    public void givenMoodAnalyzerClassName_ReturnsMoodAnalyzerObject(){
+        moodObject = new MoodAnalyzer();
+        MoodAnalyzer obj = (MoodAnalyzer) MoodAnalyzerFactory.returnMoodAnalyzerObject("com.bl.demo.MoodAnalyzer");
+        Assert.assertTrue(moodObject.equals(obj));
+    }
+
 }

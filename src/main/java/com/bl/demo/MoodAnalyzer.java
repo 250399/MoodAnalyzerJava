@@ -3,6 +3,8 @@ package com.bl.demo;
 import com.bl.demo.Exception.ExceptionTypeClass;
 import com.bl.demo.Exception.MoodAnalyzerException;
 
+import java.util.Objects;
+
 public class MoodAnalyzer {
     String message;
 
@@ -29,4 +31,10 @@ public class MoodAnalyzer {
             throw new MoodAnalyzerException(ExceptionTypeClass.NULLEXCEPTION);
         }
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return (((MoodAnalyzer) obj).message==this.message);
+    }
+
 }
