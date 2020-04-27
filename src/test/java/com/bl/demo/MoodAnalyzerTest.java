@@ -1,5 +1,6 @@
 package com.bl.demo;
 
+import com.bl.demo.Exception.MoodAnalyzerException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,8 +33,13 @@ public class MoodAnalyzerTest {
     }
 
     @Test
-    public void givenMessageNull_WhenInConstructor_ReturnsSad(){
-        Assert.assertEquals("Happy",new MoodAnalyzer(null).analyseMood());
+    public void givenMessageNull_WhenInConstructor_ThrowsCustomException(){
+        try {
+            moodObject = new MoodAnalyzer(null);
+            moodObject.analyseMood();
+        }catch (MoodAnalyzerException e){
+            Assert.assertEquals("Mood cannot be null",e.getNotice());
+        }
     }
 
 }

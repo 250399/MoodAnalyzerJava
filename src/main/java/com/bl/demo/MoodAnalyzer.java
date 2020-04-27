@@ -1,5 +1,8 @@
 package com.bl.demo;
 
+import com.bl.demo.Exception.ExceptionTypeClass;
+import com.bl.demo.Exception.MoodAnalyzerException;
+
 public class MoodAnalyzer {
     String message;
 
@@ -18,9 +21,10 @@ public class MoodAnalyzer {
         try {
             if(message.toLowerCase().contains("sad"))
                 return "Sad";
-            return "Happy";
+            else
+                return "Happy";
         }catch (NullPointerException e){
-            return "Happy";
+            throw new MoodAnalyzerException(ExceptionTypeClass.NULLEXCEPTION);
         }
     }
 }
